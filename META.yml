@@ -1,0 +1,50 @@
+---
+abstract: 'Random passphrase generator loosely based on the Diceware algorithm'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  File::Find: 0
+  File::Temp: 0
+  Test::More: 0.96
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
+license: apache
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Crypt-Diceware
+no_index:
+  directory:
+    - t
+    - xt
+    - examples
+    - corpus
+  package:
+    - DB
+provides:
+  Crypt::Diceware:
+    file: lib/Crypt/Diceware.pm
+    version: 0.001
+  Crypt::Diceware::Wordlist::Beale:
+    file: lib/Crypt/Diceware/Wordlist/Beale.pm
+    version: 0.001
+  Crypt::Diceware::Wordlist::Common:
+    file: lib/Crypt/Diceware/Wordlist/Common.pm
+    version: 0.001
+  Crypt::Diceware::Wordlist::Original:
+    file: lib/Crypt/Diceware/Wordlist/Original.pm
+    version: 0.001
+requires:
+  Class::Load: 0
+  Data::Entropy::Algorithms: 0
+  Sub::Exporter: 0
+  perl: 5.008001
+  strict: 0
+  warnings: 0
+resources:
+  bugtracker: https://github.com/dagolden/crypt-diceware/issues
+  homepage: https://metacpan.org/release/Crypt-Diceware
+  repository: git://github.com/dagolden/crypt-diceware.git
+version: 0.001

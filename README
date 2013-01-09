@@ -1,0 +1,95 @@
+NAME
+    Crypt::Diceware - Random passphrase generator loosely based on the
+    Diceware algorithm
+
+VERSION
+    version 0.001
+
+SYNOPSIS
+      use Crypt::Diceware;
+      my @phrase = words(4); # qw/starker call recur outlaw/
+
+      # with alternate word lists
+      use Crypt::Diceware words => { wordlist => 'Original' };
+      use Crypt::Diceware words => { wordlist => 'Beale' };
+
+DESCRIPTION
+    This module generates a random passphrase of words based loosely on the
+    Diceware <http://world.std.com/~reinhold/diceware.html> algorithm by
+    Arnold G. Reinhold.
+
+    A Diceware passphrase consists of a randomly selected words chosen from
+    a list of over seven thousand words. A passphrase of four or five words
+    is likely to be stronger than typical human-generated passwords, which
+    tend to be too-short and over-sample common letters ("e") and numbers
+    ("1").
+
+    Words are selected by randomly using Data::Entropy, which is reasonably
+    cryptographically strong.
+
+USAGE
+    By default, this module exports a single subroutine, "words", which uses
+    the Crypt::Diceware::Wordlist::Common word list.
+
+    An alternate wordlist may be specified:
+
+      use Crypt::Diceware words => { wordlist => 'Original' };
+
+    Exporting is done via Sub::Exporter so any of its features may be used:
+
+      use Crypt::Diceware words => { -as => 'passphrase' };
+      my @phrase = passphrase(4);
+
+  words
+      my @phrase = words(4);
+
+    Takes a positive numeric argument and returns a list of that many
+    randomly-selected words. Returns the empty list if the argument is
+    missing or not a positive number.
+
+SEE ALSO
+    *   Diceware <http://world.std.com/~reinhold/diceware.html>
+
+    *   Crypt::Diceware::Wordlist::Common
+
+    *   Crypt::Diceware::Wordlist::Original
+
+    *   Crypt::Diceware::Wordlist::Beale
+
+    Other CPAN passphrase generators:
+
+    *   Crypt::PW44
+
+    *   Crypt::XkcdPassword
+
+    About password strength in general:
+
+    *   Password Strength (XKCD) <http://xkcd.com/936/>
+
+    *   Password Strength (Wikipedia)
+        <http://en.wikipedia.org/wiki/Password_strength>
+
+SUPPORT
+  Bugs / Feature Requests
+    Please report any bugs or feature requests through the issue tracker at
+    <https://github.com/dagolden/crypt-diceware/issues>. You will be
+    notified automatically of any progress on your issue.
+
+  Source Code
+    This is open source software. The code repository is available for
+    public review and contribution under the terms of the license.
+
+    <https://github.com/dagolden/crypt-diceware>
+
+      git clone git://github.com/dagolden/crypt-diceware.git
+
+AUTHOR
+    David Golden <dagolden@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2013 by David Golden.
+
+    This is free software, licensed under:
+
+      The Apache License, Version 2.0, January 2004
+
