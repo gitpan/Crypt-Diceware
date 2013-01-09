@@ -4,7 +4,7 @@ use warnings;
 
 package Crypt::Diceware;
 # ABSTRACT: Random passphrase generator loosely based on the Diceware algorithm
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 use Class::Load qw/load_class/;
 use Data::Entropy::Algorithms qw/pick_r/;
@@ -48,7 +48,7 @@ Crypt::Diceware - Random passphrase generator loosely based on the Diceware algo
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -99,6 +99,8 @@ not a positive number.
 
 =head1 SEE ALSO
 
+Diceware and Crypt::Diceware related:
+
 =over 4
 
 =item *
@@ -130,6 +132,10 @@ L<Crypt::PW44>
 =item *
 
 L<Crypt::XkcdPassword>
+
+=item *
+
+L<Review of CPAN password/phrase generators|http://neilb.org/reviews/passwords.html>
 
 =back
 

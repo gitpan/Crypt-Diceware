@@ -26,16 +26,16 @@ no_index:
 provides:
   Crypt::Diceware:
     file: lib/Crypt/Diceware.pm
-    version: 0.001
+    version: 0.002
   Crypt::Diceware::Wordlist::Beale:
     file: lib/Crypt/Diceware/Wordlist/Beale.pm
-    version: 0.001
+    version: 0.002
   Crypt::Diceware::Wordlist::Common:
     file: lib/Crypt/Diceware/Wordlist/Common.pm
-    version: 0.001
+    version: 0.002
   Crypt::Diceware::Wordlist::Original:
     file: lib/Crypt/Diceware/Wordlist/Original.pm
-    version: 0.001
+    version: 0.002
 requires:
   Class::Load: 0
   Data::Entropy::Algorithms: 0
@@ -47,4 +47,4 @@ resources:
   bugtracker: https://github.com/dagolden/crypt-diceware/issues
   homepage: https://metacpan.org/release/Crypt-Diceware
   repository: git://github.com/dagolden/crypt-diceware.git
-version: 0.001
+version: 0.002

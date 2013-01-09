@@ -4,7 +4,7 @@ use warnings;
 
 package Crypt::Diceware::Wordlist::Common;
 # ABSTRACT: Crypt::Diceware wordlist from common English words
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 our @Words = qw{
   abacus abase abbess abbey abbot abdicate abdomen abdominal abduction abed
@@ -874,7 +874,7 @@ Crypt::Diceware::Wordlist::Common - Crypt::Diceware wordlist from common English
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

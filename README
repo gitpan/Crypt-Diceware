@@ -3,7 +3,7 @@ NAME
     Diceware algorithm
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
       use Crypt::Diceware;
@@ -48,6 +48,8 @@ USAGE
     missing or not a positive number.
 
 SEE ALSO
+    Diceware and Crypt::Diceware related:
+
     *   Diceware <http://world.std.com/~reinhold/diceware.html>
 
     *   Crypt::Diceware::Wordlist::Common
@@ -61,6 +63,9 @@ SEE ALSO
     *   Crypt::PW44
 
     *   Crypt::XkcdPassword
+
+    *   Review of CPAN password/phrase generators
+        <http://neilb.org/reviews/passwords.html>
 
     About password strength in general:
 

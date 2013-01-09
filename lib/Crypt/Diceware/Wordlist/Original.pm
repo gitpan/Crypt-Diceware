@@ -4,7 +4,7 @@ use warnings;
 
 package Crypt::Diceware::Wordlist::Original;
 # ABSTRACT: Crypt::Diceware wordlist from the original Diceware list
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 our @Words = qw{
   a a&p a's aa aaa aaaa aaron ab aba ababa aback abase abash abate abbas abbe
@@ -590,7 +590,7 @@ Crypt::Diceware::Wordlist::Original - Crypt::Diceware wordlist from the original
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
