@@ -3,7 +3,7 @@ NAME
     Diceware algorithm
 
 VERSION
-    version 0.002
+    version 0.003
 
 SYNOPSIS
       use Crypt::Diceware;
@@ -43,9 +43,15 @@ USAGE
   words
       my @phrase = words(4);
 
-    Takes a positive numeric argument and returns a list of that many
-    randomly-selected words. Returns the empty list if the argument is
-    missing or not a positive number.
+    Takes a positive numeric argument and returns a passphrase of that many
+    randomly-selected words. In a list context it will return a list of
+    words, as above. In a scalar context it will return a string with the
+    words separated with a single space character:
+
+      my $phrase = words(4);
+
+    Returns the empty list / string if the argument is missing or not a
+    positive number.
 
 SEE ALSO
     Diceware and Crypt::Diceware related:
@@ -90,6 +96,9 @@ SUPPORT
 
 AUTHOR
     David Golden <dagolden@cpan.org>
+
+CONTRIBUTOR
+    Neil Bowers <neil@bowers.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2013 by David Golden.

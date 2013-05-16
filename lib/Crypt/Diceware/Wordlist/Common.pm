@@ -4,7 +4,7 @@ use warnings;
 
 package Crypt::Diceware::Wordlist::Common;
 # ABSTRACT: Crypt::Diceware wordlist from common English words
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 our @Words = qw{
   abacus abase abbess abbey abbot abdicate abdomen abdominal abduction abed
@@ -367,7 +367,7 @@ our @Words = qw{
   heredity heresy heretic herewith heritage hernia heroic herstory hesitancy
   hesitant hetero heterodox hexagon hexapod heyday hiatus hibernal hickory
   hideaway hideous hie high higher hightail hiker hilarious hillbilly hillock
-  hillside hinder hindmost hindrance hint hints hippest hirsute his his/her
+  hillside hinder hindmost hindrance hint hints hippest hirsute his
   hissy history hitherto hive hmong hoard hoarse hobbit hobnob hock hockey
   hog holdover hole hollowed hollowly homage home homed homely homemade
   homemaker homespun homework homily homonym homophone homos honoree
@@ -846,7 +846,7 @@ our @Words = qw{
   wherever wherewith whet while whiled whimper whimsical whine whip whipping
   whippy whirr whirred whistle white whittle whiz whodunit wholly whomever
   whoop whoops whooshes wide widening widowed widower wield wielders
-  wiggle wiggly wild wildcard wile wilful willowy wills wimp win/win winced
+  wiggle wiggly wild wildcard wile wilful willowy wills wimp winced
   windage windswept wingman winsome winter wintry wipeout wiper wires wiretap
   wiry wise wisecrack wiseguy wishful withered within witless witling
   witticism wittiest wittingly wizen womanly wondered wonders wondrous
@@ -868,13 +868,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Crypt::Diceware::Wordlist::Common - Crypt::Diceware wordlist from common English words
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -920,6 +922,10 @@ L<Crypt::Diceware>
 =head1 AUTHOR
 
 David Golden <dagolden@cpan.org>
+
+=head1 CONTRIBUTOR
+
+Neil Bowers <neil@bowers.com>
 
 =head1 COPYRIGHT AND LICENSE
 
