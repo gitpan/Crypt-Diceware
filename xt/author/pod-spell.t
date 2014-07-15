@@ -33,6 +33,6 @@ lib
 Crypt
 Diceware
 Wordlist
-Original
-Beale
 Common
+Beale
+Original

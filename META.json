@@ -49,7 +49,12 @@
       "runtime" : {
          "requires" : {
             "Class::Load" : "0",
+            "Crypt::Rijndael" : "0",
+            "Crypt::URandom" : "0",
+            "Data::Entropy" : "0",
             "Data::Entropy::Algorithms" : "0",
+            "Data::Entropy::RawSource::CryptCounter" : "0",
+            "Data::Entropy::Source" : "0",
             "Sub::Exporter" : "0",
             "perl" : "5.008001",
             "strict" : "0",
@@ -67,6 +72,7 @@
             "FindBin" : "0",
             "List::Util" : "0",
             "Test::More" : "0.96",
+            "lib" : "0",
             "version" : "0"
          }
       }
@@ -74,19 +80,19 @@
    "provides" : {
       "Crypt::Diceware" : {
          "file" : "lib/Crypt/Diceware.pm",
-         "version" : "0.004"
+         "version" : "0.005"
       },
       "Crypt::Diceware::Wordlist::Beale" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Beale.pm",
-         "version" : "0.004"
+         "version" : "0.005"
       },
       "Crypt::Diceware::Wordlist::Common" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Common.pm",
-         "version" : "0.004"
+         "version" : "0.005"
       },
       "Crypt::Diceware::Wordlist::Original" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Original.pm",
-         "version" : "0.004"
+         "version" : "0.005"
       }
    },
    "release_status" : "stable",
@@ -101,7 +107,7 @@
          "web" : "https://github.com/dagolden/Crypt-Diceware"
       }
    },
-   "version" : "0.004",
+   "version" : "0.005",
    "x_authority" : "cpan:DAGOLDEN",
    "x_contributors" : [
       "Mario Domgoergen <mdom@taz.de>",

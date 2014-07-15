@@ -16,8 +16,10 @@ lib/Crypt/Diceware/Wordlist/Original.pm
 perlcritic.rc
 t/00-report-prereqs.t
 t/basic.t
+t/entropy.t
 t/file.t
 t/files/dicewarekit.txt
+t/lib/BadRandomSource.pm
 tidyall.ini
 xt/author/00-compile.t
 xt/author/critic.t

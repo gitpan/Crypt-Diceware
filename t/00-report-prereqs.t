@@ -67,7 +67,12 @@ my $static_prereqs = do { my $x = {
        'runtime' => {
                       'requires' => {
                                       'Class::Load' => '0',
+                                      'Crypt::Rijndael' => '0',
+                                      'Crypt::URandom' => '0',
+                                      'Data::Entropy' => '0',
                                       'Data::Entropy::Algorithms' => '0',
+                                      'Data::Entropy::RawSource::CryptCounter' => '0',
+                                      'Data::Entropy::Source' => '0',
                                       'Sub::Exporter' => '0',
                                       'perl' => '5.008001',
                                       'strict' => '0',
@@ -85,6 +90,7 @@ my $static_prereqs = do { my $x = {
                                    'FindBin' => '0',
                                    'List::Util' => '0',
                                    'Test::More' => '0.96',
+                                   'lib' => '0',
                                    'version' => '0'
                                  }
                  }

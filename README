@@ -3,7 +3,7 @@ NAME
     Diceware algorithm
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
       use Crypt::Diceware;
@@ -18,14 +18,14 @@ DESCRIPTION
     Diceware <http://world.std.com/~reinhold/diceware.html> algorithm by
     Arnold G. Reinhold.
 
-    A Diceware passphrase consists of a randomly selected words chosen from
-    a list of over seven thousand words. A passphrase of four or five words
-    is likely to be stronger than typical human-generated passwords, which
-    tend to be too-short and over-sample common letters ("e") and numbers
-    ("1").
+    A Diceware passphrase consists of randomly selected words chosen from a
+    list of over seven thousand words. A passphrase of four or five words is
+    likely to be stronger than typical human-generated passwords, which tend
+    to be too-short and over-sample common letters ("e") and numbers ("1").
 
-    Words are selected by randomly using Data::Entropy, which is reasonably
-    cryptographically strong.
+    Words are randomly selected using Data::Entropy in AES counter mode,
+    seeded with Crypt::URandom, which is reasonably cryptographically
+    strong.
 
 USAGE
     By default, this module exports a single subroutine, "words", which uses
@@ -44,6 +44,11 @@ USAGE
       use Crypt::Diceware words => { file => 'diceware-german.txt' };
 
     The supplied file should contain one word per line.
+
+    You can also replace the entropy source with another
+    Data::Entropy::Source object:
+
+      use Crypt::Diceware words => { entropy => $entropy_source };
 
     Exporting is done via Sub::Exporter so any of its features may be used:
 
