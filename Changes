@@ -1,5 +1,15 @@
 Revision history for Crypt-Diceware
 
+0.004     2014-07-14 23:27:43-04:00 America/New_York
+
+    [ADDED]
+
+    - Custom word files may be used
+
+    [CHANGED]
+
+    - Modernized distribution meta files
+
 0.003     2013-05-16 17:59:58 America/New_York
 
     [CHANGED]

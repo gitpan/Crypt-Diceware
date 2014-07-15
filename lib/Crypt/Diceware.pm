@@ -4,34 +4,42 @@ use warnings;
 
 package Crypt::Diceware;
 # ABSTRACT: Random passphrase generator loosely based on the Diceware algorithm
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 use Class::Load qw/load_class/;
 use Data::Entropy::Algorithms qw/pick_r/;
 
 use Sub::Exporter -setup => {
-  exports => [ words   => \'_build_words' ],
-  groups  => { default => [qw/words/] },
+    exports => [ words   => \'_build_words' ],
+    groups  => { default => [qw/words/] },
 };
 
 sub _build_words {
-  my ( $class, $name, $arg ) = @_;
-  $arg ||= {};
-  my $word_class = $arg->{wordlist} || 'Common';
-  unless ( $word_class =~ /::/ ) {
-    $word_class = "Crypt::Diceware::Wordlist::$word_class";
-  }
-  load_class($word_class);
-  my $list = do {
-    no strict 'refs';
-    \@{"${word_class}::Words"};
-  };
-  return sub {
-    my ($n) = @_;
-    return unless $n && $n > 0;
-    my @w = map { pick_r($list) } 1 .. int($n);
-    return wantarray ? @w : join(' ', @w);
-  };
+    my ( $class, $name, $arg ) = @_;
+    $arg ||= {};
+    my $list;
+    if ( exists $arg->{file} ) {
+        my @list = do { local (@ARGV) = $arg->{file}; <> };
+        chomp(@list);
+        $list = \@list;
+    }
+    else {
+        my $word_class = $arg->{wordlist} || 'Common';
+        unless ( $word_class =~ /::/ ) {
+            $word_class = "Crypt::Diceware::Wordlist::$word_class";
+        }
+        load_class($word_class);
+        $list = do {
+            no strict 'refs';
+            \@{"${word_class}::Words"};
+        };
+    }
+    return sub {
+        my ($n) = @_;
+        return unless $n && $n > 0;
+        my @w = map { pick_r($list) } 1 .. int($n);
+        return wantarray ? @w : join( ' ', @w );
+    };
 }
 
 1;
@@ -43,7 +51,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -51,7 +59,7 @@ Crypt::Diceware - Random passphrase generator loosely based on the Diceware algo
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -76,8 +84,6 @@ too-short and over-sample common letters ("e") and numbers ("1").
 Words are selected by randomly using L<Data::Entropy>, which is reasonably
 cryptographically strong.
 
-=for Pod::Coverage method_names_here
-
 =head1 USAGE
 
 By default, this module exports a single subroutine, C<words>, which uses the
@@ -86,6 +92,17 @@ L<Crypt::Diceware::Wordlist::Common> word list.
 An alternate wordlist may be specified:
 
   use Crypt::Diceware words => { wordlist => 'Original' };
+
+This loads the wordlist provided by
+L<Crypt::Diceware::Wordlist::Original>. If the name of the wordlist
+contains I<::> the name of the wordlist is not prefixed by
+I<Crypt::Diceware::Wordlist>.
+
+It is also possible to load a wordlist from a file via:
+
+  use Crypt::Diceware words => { file => 'diceware-german.txt' };
+
+The supplied file should contain one word per line.
 
 Exporting is done via L<Sub::Exporter> so any of its features may be used:
 
@@ -103,6 +120,8 @@ In a scalar context it will return a string with the words separated with a sing
   my $phrase = words(4);
 
 Returns the empty list / string if the argument is missing or not a positive number.
+
+=for Pod::Coverage method_names_here
 
 =head1 SEE ALSO
 
@@ -167,7 +186,7 @@ L<Password Strength (Wikipedia)|http://en.wikipedia.org/wiki/Password_strength>
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the issue tracker
-at L<https://github.com/dagolden/crypt-diceware/issues>.
+at L<https://github.com/dagolden/Crypt-Diceware/issues>.
 You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
@@ -175,17 +194,27 @@ You will be notified automatically of any progress on your issue.
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<https://github.com/dagolden/crypt-diceware>
+L<https://github.com/dagolden/Crypt-Diceware>
 
-  git clone git://github.com/dagolden/crypt-diceware.git
+  git clone https://github.com/dagolden/Crypt-Diceware.git
 
 =head1 AUTHOR
 
 David Golden <dagolden@cpan.org>
 
-=head1 CONTRIBUTOR
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Mario Domgoergen <mdom@taz.de>
+
+=item *
 
 Neil Bowers <neil@bowers.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

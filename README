@@ -3,7 +3,7 @@ NAME
     Diceware algorithm
 
 VERSION
-    version 0.003
+    version 0.004
 
 SYNOPSIS
       use Crypt::Diceware;
@@ -34,6 +34,16 @@ USAGE
     An alternate wordlist may be specified:
 
       use Crypt::Diceware words => { wordlist => 'Original' };
+
+    This loads the wordlist provided by Crypt::Diceware::Wordlist::Original.
+    If the name of the wordlist contains *::* the name of the wordlist is
+    not prefixed by *Crypt::Diceware::Wordlist*.
+
+    It is also possible to load a wordlist from a file via:
+
+      use Crypt::Diceware words => { file => 'diceware-german.txt' };
+
+    The supplied file should contain one word per line.
 
     Exporting is done via Sub::Exporter so any of its features may be used:
 
@@ -83,22 +93,24 @@ SEE ALSO
 SUPPORT
   Bugs / Feature Requests
     Please report any bugs or feature requests through the issue tracker at
-    <https://github.com/dagolden/crypt-diceware/issues>. You will be
+    <https://github.com/dagolden/Crypt-Diceware/issues>. You will be
     notified automatically of any progress on your issue.
 
   Source Code
     This is open source software. The code repository is available for
     public review and contribution under the terms of the license.
 
-    <https://github.com/dagolden/crypt-diceware>
+    <https://github.com/dagolden/Crypt-Diceware>
 
-      git clone git://github.com/dagolden/crypt-diceware.git
+      git clone https://github.com/dagolden/Crypt-Diceware.git
 
 AUTHOR
     David Golden <dagolden@cpan.org>
 
-CONTRIBUTOR
-    Neil Bowers <neil@bowers.com>
+CONTRIBUTORS
+    *   Mario Domgoergen <mdom@taz.de>
+
+    *   Neil Bowers <neil@bowers.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2013 by David Golden.
